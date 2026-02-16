@@ -12,7 +12,7 @@ const Preview: React.FC<PreviewProps> = ({ data, version }) => {
   const isHidden = (section: string) => version.hiddenSections.includes(section);
 
   return (
-    <div id="cv-preview" className="print-area bg-white p-[0.75in] shadow-2xl print:shadow-none print:p-0 mx-auto min-h-[11in] w-full max-w-[8.5in] text-[#0f172a] font-['Inter'] leading-tight animate-in zoom-in-95 duration-500">
+    <div id="cv-preview" className="print-area bg-white p-4 sm:p-[0.75in] shadow-2xl print:shadow-none print:p-0 mx-auto min-h-full sm:min-h-[11in] h-full w-full sm:max-w-[8.5in] text-[#0f172a] font-['Inter'] leading-tight animate-in zoom-in-95 duration-500">
       {/* Header */}
       <header className="text-center mb-8 border-b-[3px] border-slate-900 pb-6">
         <h1 className="text-4xl font-[900] uppercase tracking-tighter mb-1 text-slate-900">{data.personalInfo.fullName || 'Your Name'}</h1>

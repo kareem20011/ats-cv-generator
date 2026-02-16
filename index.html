@@ -57,9 +57,14 @@
         }
 
         @media (max-width: 480px) {
+            #cv-preview-container {
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 24px !important;
+            }
             #cv-preview {
-                transform: scale(0.33);
-                margin-bottom: -750px !important;
+                transform: scale(0.9);
+                margin-bottom: 0 !important;
             }
         }
 

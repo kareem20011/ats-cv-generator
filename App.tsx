@@ -194,8 +194,8 @@ const App: React.FC = () => {
           className="flex-1 overflow-y-auto bg-slate-50 relative custom-scrollbar touch-pan-y min-h-0"
         >
           {isFinished ? (
-            <div className="min-h-full flex flex-col items-center p-4 sm:p-12 animate-in fade-in zoom-in-95 duration-500">
-               <div className="max-w-4xl w-full pb-20">
+            <div className="min-h-full flex flex-col items-center p-0 sm:p-12 animate-in fade-in zoom-in-95 duration-500">
+               <div className="w-full sm:max-w-4xl pb-0 sm:pb-20">
                   <div className="no-print flex flex-col sm:flex-row items-center justify-between gap-6 mb-12 bg-white p-6 sm:p-8 rounded-[2.5rem] border border-slate-200 shadow-xl">
                      <div>
                         <h2 className="text-2xl sm:text-3xl font-black text-slate-900 uppercase tracking-tighter text-center sm:text-left">Your CV is Ready! 🎉</h2>
@@ -233,7 +233,7 @@ const App: React.FC = () => {
                         </div>
                      </div>
                   </div>
-                  <div id="cv-preview-container" className="w-full flex justify-center bg-slate-300/30 p-2 sm:p-12 rounded-[2rem] sm:rounded-[3rem] border-4 border-dashed border-slate-200 overflow-hidden mb-20">
+                  <div id="cv-preview-container" className="w-full flex justify-center bg-transparent sm:bg-slate-300/30 p-0 sm:p-12 rounded-none sm:rounded-[3rem] border-0 sm:border-4 sm:border-dashed border-slate-200 overflow-hidden mb-0 sm:mb-20">
                      <Preview data={activeVersion.data} version={activeVersion} />
                   </div>
                </div>
