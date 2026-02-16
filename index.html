@@ -1,80 +1,85 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>ATS Pro - AI CV Optimizer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --vh: 1vh;
+        }
+        html, body, #root {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
+            background-color: #f1f5f9;
             -webkit-tap-highlight-color: transparent;
-            color: #1e293b;
+            color: #0f172a;
+            /* Fix for iOS viewport height */
+            height: 100vh;
+            height: calc(var(--vh, 1vh) * 100);
         }
 
-        /* تحسينات الطباعة */
+        /* Print Settings */
         @media print {
-            @page {
-                size: A4;
-                margin: 0;
-            }
-
-            .no-print {
-                display: none !important;
-            }
-
-            #cv-preview-container {
-                padding: 0 !important;
-                background: white !important;
-            }
-
-            #cv-preview {
-                box-shadow: none !important;
-                width: 100% !important;
-                padding: 0.5in !important;
-                transform: none !important;
+            @page { size: A4; margin: 0; }
+            .no-print { display: none !important; }
+            #cv-preview-container { padding: 0 !important; background: white !important; display: block !important; overflow: visible !important; border: none !important; }
+            #cv-preview { 
+                box-shadow: none !important; 
+                width: 100% !important; 
+                padding: 0.5in !important; 
+                transform: none !important; 
                 margin: 0 !important;
+                border: none !important;
             }
         }
 
-        /* Responsive Preview Scaling - Improved for readability */
-        @media (max-width: 768px) {
+        /* Final View Scaling for Mobile */
+        @media (max-width: 1023px) {
             #cv-preview {
-                transform: scale(0.6);
+                width: 794px !important; 
+                min-height: 1123px;
+                transform: scale(0.40);
                 transform-origin: top center;
-                margin-bottom: -350px;
-                width: 850px;
-                /* Fixed width for consistent scaling */
-                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-            }
-
-            #cv-preview-container {
-                padding: 1.5rem 0.5rem !important;
-                overflow-x: hidden;
+                margin-top: 0 !important;
+                margin-bottom: -680px !important;
+                box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.25);
+                background-color: white;
             }
         }
 
         @media (max-width: 480px) {
             #cv-preview {
-                transform: scale(0.42);
-                margin-bottom: -550px;
+                transform: scale(0.33);
+                margin-bottom: -750px !important;
             }
         }
 
-        ::-webkit-scrollbar {
-            width: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 10px;
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        
+        @media screen and (max-width: 768px) {
+          input, select, textarea {
+            font-size: 16px !important;
+          }
         }
     </style>
-    <script type="importmap">
+    <script>
+        const resetHeight = () => {
+            document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+        };
+        window.addEventListener('resize', resetHeight);
+        resetHeight();
+    </script>
+<script type="importmap">
 {
   "imports": {
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
@@ -84,12 +89,10 @@
   }
 }
 </script>
-    <link rel="stylesheet" href="/index.css">
+<link rel="stylesheet" href="/index.css">
 </head>
-
 <body>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
 </body>
-
 </html>
